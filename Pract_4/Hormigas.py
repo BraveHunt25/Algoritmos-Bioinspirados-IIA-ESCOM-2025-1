@@ -158,7 +158,7 @@ class Hormiga():
         self.costo_camino: float = 0
 
     def __str__(self):
-        return f"{self.posicion}. Recorrido:\n {self.recorrido}\n Costo del recorrido: {self.costo_camino}"
+        return f"{self.posicion}. Recorrido:\n {self.nodos_visitados}\n Costo del recorrido: {self.costo_camino}"
     
     def agregar_nodo_recorrido(self, camino: Camino) -> None:
         r'''
@@ -257,6 +257,7 @@ class Colmena():
                         siguiente_camino = camino
                         break
                 hormiga.agregar_nodo_recorrido(siguiente_camino)
+                hormiga.nodos_visitados.append(hormiga.nodos_visitados[0])
                 hormiga.posicion = hormiga.nodos_visitados[0].nombre
                 print(hormiga)
             #print('*'*70)
@@ -282,8 +283,8 @@ class Colmena():
         ### iteracion
         Maneja el algortimo completo de cada iteración y el reinicio de los datos guardados en las hormigas sobre el recorrido realizado
         '''
-        for i, hormiga in enumerate(self.poblacion):
-            print(f"Hormiga: {i}\nPosición actual: {hormiga}")
+        #for i, hormiga in enumerate(self.poblacion):
+        #    print(f"Hormiga: {i}\nPosición actual: {hormiga}")
         for _ in range(len(self.mapa.nodos)):
             self.avanzar()
         self.actualizar_feromonas()
