@@ -1,3 +1,8 @@
+# HORMIGAS
+# Hernández Jiménez Erick Yael 2023630748
+# Algortimos Bioinspirados de Ingeniería en Inteligencia Artificial 2025-1
+# Escuela Superior de Cómputo
+
 import numpy as np
 
 class Nodo():
