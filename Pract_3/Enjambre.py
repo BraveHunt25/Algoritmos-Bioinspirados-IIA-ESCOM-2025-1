@@ -10,7 +10,7 @@ class Particula():
     def __init__(self):
         # Velocidad actual de la partícula
         self.velocidad: ndarray = np.random.uniform(-5, 5, (1, 2))
-        # Coordenadas de la posición actual de la partícula
+        # Coordenadas de la posición actual de la partículaself.pos = np.clip(nueva_posicion, -5, 5
         self.pos: ndarray = np.random.uniform(-5, 5, (1, 2))
         # Coordenadas de la mejor posición de la partícula
         self.pbest: ndarray = self.pos.copy()
@@ -20,7 +20,7 @@ class Particula():
     
     def actualizar_posicion(self) -> None:
         nueva_posicion: ndarray = np.add(self.pos, self.velocidad)
-        self.pos = nueva_posicion
+        self.pos = np.clip(nueva_posicion, -5, 5)
         return
 
 class Enjambre(Particula):
